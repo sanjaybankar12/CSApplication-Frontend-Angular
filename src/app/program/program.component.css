@@ -1,0 +1,12 @@
+
+.program_form {
+    margin: 2% auto;
+    width: 50%;
+}
+
+textarea {
+    height: 120px;
+}
+button {
+    font-weight: bold;
+}

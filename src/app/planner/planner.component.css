@@ -1,0 +1,23 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.planner_cover {
+    padding: 15px;
+}
+.card {
+    width: 70%;
+    margin: 2% auto;
+}
+.card-link {
+    
+}
+
+.program-text {
+    padding: 0 15%;
+}
+
+.text-link {
+    color: royalblue;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}

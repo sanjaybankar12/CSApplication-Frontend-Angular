@@ -1,0 +1,28 @@
+
+
+<div class="program_form">
+    <h3 class="text-center mb-3">Program Form</h3>
+    <p><a routerLink="/planner"><--Back</a></p>
+    <form #programForm="ngForm" class="" (submit)="createProgram(programForm.value)">
+    <div class="form-group">
+        <select #activity class="form-control" [(ngModel)]="activityId" id="activityId" name="activityId">
+            <option value="0" disabled>-- Select Activity --</option>
+            <option *ngFor="let activity of activities" value="{{activity.id}}">{{activity.title}}</option>
+        </select>
+        <span class="text-danger">{{errTitle}}</span>
+    </div>
+    <div class="form-group">
+        <label for="description" class="control-label">Description:</label>
+        <textarea placeholder="activity requirements" required="" [(ngModel)]="description" id="description" name="description" class="form-control"></textarea>
+        <span class="text-danger">{{errDisc}}</span>
+    </div>
+    <div class="form-group">
+        <label for="duedate" class="control-label">Due date:</label>
+        <input type="date" id="duedate" class="form-control" required="" [(ngModel)]="duedate" name="duedate" />
+        <span class="text-danger">{{errDt}}</span>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-warning">Create Program</button>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.admin_cover {
+    padding: 15px;
+}
+.card {
+    width: 70%;
+    margin: 2% auto;
+}
+.card-link {
+    
+}
+h3 {
+    font-size: 20px;
+}
+.program-text {
+    padding: 0 15%;
+}
+
+.text-link {
+    cursor: pointer;
+}
+.link-cvr {
+    float: right;
+    font-size: 17px;
+}
+
+.card-title {
+    font-size: 16px;
+}
+.card-text {
+    font-size: 14px;
+}
+
+.program-list {
+    overflow: scroll;
+    height: 650px;
+}

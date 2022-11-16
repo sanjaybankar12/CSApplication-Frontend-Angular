@@ -1,0 +1,19 @@
+
+<div class="admin_cover">
+        <h3 class="text-center">User Program List</h3>
+        <div class="program-list">
+            <div *ngFor="let program of programs;let i=index" class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{i+1}}) {{program?.activity.title}}
+                          <span class="link-cvr">
+                            <p class="text-link text-success" (click)="approveProgram(program.id)">Approve<i class="fa fa-check"></i></p>  
+                            <p class="text-link text-danger" (click)="rejectProgram(program.id)">Reject<i class="fa fa-ban"></i></p>
+                          </span>
+                    </h5>
+                      <p class="card-text" [innerHTML]="program?.description"></p>
+                      <p class="card-text">Due date : {{program?.duedate}}</p>                  
+                    </div>
+                  </div>
+        </div>
+    </div>
+    
