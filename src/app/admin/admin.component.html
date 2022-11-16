@@ -4,7 +4,7 @@
         <div class="program-list">
             <div *ngFor="let program of programs;let i=index" class="card">
                     <div class="card-body">
-                      <h5 class="card-title">{{i+1}}) {{program?.activity.title}}
+                      <h5 class="card-title">{{i+1}}) {{program?.activity?.title}}
                           <span class="link-cvr">
                             <p class="text-link text-success" (click)="approveProgram(program.id)">Approve<i class="fa fa-check"></i></p>  
                             <p class="text-link text-danger" (click)="rejectProgram(program.id)">Reject<i class="fa fa-ban"></i></p>

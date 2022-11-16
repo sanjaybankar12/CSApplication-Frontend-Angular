@@ -12,7 +12,7 @@ import { Program } from '../model/program.model';
 })
 export class AdminComponent implements OnInit {
 
-  programs:Program[];
+  programs:Program[]=[];
 
   constructor(private router:Router,private dataService:DataService) { }
 
@@ -24,12 +24,12 @@ export class AdminComponent implements OnInit {
     this.dataService.getPrograms().subscribe((nextVal:any) => this.programs = nextVal);
   }
 
-  approveProgram(programId:number) {
+  approveProgram(programId:number|any) {
       this.dataService.approveProgram(programId);
       this.dataService.getPrograms().subscribe((nextVal:any) => this.programs = nextVal);
   }
 
-  rejectProgram(programId:number) {
+  rejectProgram(programId:number|any) {
     this.dataService.rejectProgram(programId);
     this.dataService.getPrograms().subscribe((nextVal:any) => this.programs = nextVal);
   }

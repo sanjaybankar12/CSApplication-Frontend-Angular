@@ -11,7 +11,7 @@ import { Program } from '../model/program.model';
 })
 export class PlannerComponent implements OnInit {
 
-  programs:Program[];
+  programs:Program[] = [];
 
   constructor(private dataService:DataService, private router:Router) { 
 
@@ -19,10 +19,11 @@ export class PlannerComponent implements OnInit {
 
   ngOnInit() {
     var username = sessionStorage.getItem("username");
-    if(!username) {
+    if(username == null || username == undefined) {
       this.router.navigateByUrl("/login");
+    } else {
+      this.dataService.getUserPrograms(username).subscribe((nextVal:any) => this.programs = nextVal);
     }
-    this.dataService.getUserPrograms(username).subscribe((nextVal:any) => this.programs = nextVal);
   }
 
   editData(cardData:Program) {

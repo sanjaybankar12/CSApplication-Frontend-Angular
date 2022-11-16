@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../model/user.model';
+import { EMPTY_STRING } from './../constants/cs.constant';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +12,23 @@ import { User } from '../model/user.model';
 })
 export class LoginComponent implements OnInit {
 
-  username:string;
-  password:string;
-  role:string;
+  username:string = EMPTY_STRING;
+  password:string = EMPTY_STRING;
+  role:string = EMPTY_STRING;
   user:User;
 
-  errorMsg:string;
-  constructor(private router: Router, private userService:UserService) { }
+  errorMsg:string = EMPTY_STRING;
+  constructor(private router: Router, private userService:UserService) {
+      this.user = {
+        username: EMPTY_STRING,
+        password: EMPTY_STRING,
+        role:EMPTY_STRING
+      };
+   }
 
   ngOnInit() {
-    this.username="";
-    this.password="";
+    this.username = EMPTY_STRING;
+    this.password = EMPTY_STRING;
     this.role = "PLANNER";
   }
 

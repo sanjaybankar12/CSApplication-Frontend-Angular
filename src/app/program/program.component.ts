@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Program } from '../model/program.model';
 import { DataService } from '../services/data.service';
 
+import { EMPTY_STRING } from './../constants/cs.constant';
+
 @Component({
   selector: 'app-program',
   templateUrl: './program.component.html',
@@ -11,16 +13,18 @@ import { DataService } from '../services/data.service';
 })
 export class ProgramComponent implements OnInit {
 
-  program:Program;
-  activities:Program[];
-  description:string;
-  title:string;
-  duedate:string;
+  program:Program = {};
+  activities:Program[]=[];
+  description:string = EMPTY_STRING;
+  title:string = EMPTY_STRING;
+  duedate:string = EMPTY_STRING;
+  activityId:string = "0";
 
-  errTitle:string="";
-  errDisc:string="";
-  errDt:string="";
-  constructor(private router:Router,private activatedRoute:ActivatedRoute,private dataService:DataService) { }
+  errTitle:string = EMPTY_STRING;
+  errDisc:string = EMPTY_STRING;
+  errDt:string = EMPTY_STRING;
+  constructor(private router:Router,private activatedRoute:ActivatedRoute,private dataService:DataService) { 
+  }
 
   ngOnInit() {
     var username = sessionStorage.getItem("username");
@@ -38,7 +42,9 @@ export class ProgramComponent implements OnInit {
     if(!this.validateInput(programForm)) {
       return;
     }
-    programForm.activityId = +programForm.activityId;
+    if(programForm.activityId != undefined) {
+      programForm.activityId = + programForm.activityId;
+    }
     console.log(programForm);
     var username = sessionStorage.getItem("username");
     if(!username) {
@@ -72,8 +78,8 @@ export class ProgramComponent implements OnInit {
   }
 
   clearData() {
-    this.errTitle="";
-    this.errDt="";
-    this.errDisc="";
+    this.errTitle = EMPTY_STRING;
+    this.errDt = EMPTY_STRING;
+    this.errDisc = EMPTY_STRING;
   }
 }

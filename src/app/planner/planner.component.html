@@ -5,7 +5,7 @@
         <a class="program-text" routerLink="/program">Create New Program</a>
         <div *ngFor="let program of programs;let i=index" class="card">
                 <div class="card-body">
-                  <h5 class="card-title">{{i+1}}) {{program?.activity.title}}
+                  <h5 class="card-title">{{i+1}}) {{program?.activity?.title}}
                     <span class="text-link" (click)="editData(program)"><i class="fa fa-pencil"></i></span></h5>
                   <p class="card-text" [innerHTML]="program?.description"></p>
                   <p class="card-text">Due date : {{program?.duedate}}</p>                  
